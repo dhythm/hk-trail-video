@@ -5,3 +5,11 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# 素材と、素材から生成する中間ファイル（scripts/prepare_assets.sh で再生成）
+public/img/
+public/chara/
+public/logo/
+public/audio/
+public/fx/
+__pycache__/
