@@ -2,8 +2,9 @@
 
 香港トレイル（港島徑）全8区間・約50kmを紹介する 5 分の動画と、okady.work ロゴの単体クリップ。
 
-- `HongKongTrail` … 本編 1920×1080 / 30fps / 300 秒
-- `OkadyLogo` … ロゴ SVG のアニメーションをそのまま再生する 6 秒クリップ（本編とは別）
+- `HongKongTrailFull` … 公開用の通し版（本編 300 秒 ＋ ロゴ 6 秒）1920×1080 / 30fps
+- `HongKongTrail` … 本編のみ
+- `OkadyLogo` … ロゴ SVG のアニメーションをそのまま再生する 6 秒クリップ
 
 ## 構成
 
@@ -39,7 +40,7 @@ scripts/prepare_assets.sh
 
 ```bash
 npm run dev
-npx remotion render HongKongTrail out/main.mp4 --codec=h264 --crf=17 --audio-codec=aac --audio-bitrate=320k
+npx remotion render HongKongTrailFull out/full.mp4 --codec=h264 --crf=17 --audio-codec=aac --audio-bitrate=320k
 npx remotion render OkadyLogo out/logo.mp4 --codec=h264 --crf=16
 ```
 
