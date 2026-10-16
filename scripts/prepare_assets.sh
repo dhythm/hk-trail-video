@@ -1,10 +1,10 @@
 #!/bin/zsh
-# 素材フォルダから public/ を組み立てる（素材・中間ファイルはリポジトリに含めない）
-# usage: scripts/prepare_assets.sh <香港トレイル_採用素材 のパス>
+# assets/（採用素材）から public/ を組み立てる。中間ファイルはリポジトリに含めない
+# usage: scripts/prepare_assets.sh [素材フォルダ（省略時は assets/）]
 set -euo pipefail
 
-src=${1:?"usage: scripts/prepare_assets.sh <素材フォルダ>"}
 root=${0:A:h:h}
+src=${1:-$root/assets}
 pub="$root/public"
 
 [ -d "$src" ] || { echo "素材フォルダが見つかりません: $src" >&2; exit 1; }

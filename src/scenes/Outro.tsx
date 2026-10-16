@@ -1,10 +1,9 @@
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { At } from "../components/At";
-import { Flash, Photo, Tag, img } from "../components/basics";
+import { Flash, Photo, img } from "../components/basics";
 import { Chara } from "../components/chara";
 import { Contours } from "../components/graphics";
 import { RiseText, TextClipImage } from "../components/text";
-import { CREDIT } from "../data";
 import { ip } from "../lib/anim";
 import { ANTON, C, EASE, JP, MONO } from "../theme";
 
@@ -38,7 +37,6 @@ function Recap() {
         ))}
       </div>
       <Flash at={i * per} len={5} max={0.3} />
-      <Tag kind="user" text={CREDIT.user} delay={4} />
     </AbsoluteFill>
   );
 }
@@ -72,7 +70,6 @@ function Invite() {
           WALK THE HONG KONG TRAIL
         </div>
       </AbsoluteFill>
-      <Tag kind="chara" text={CREDIT.chara} delay={20} dark />
     </AbsoluteFill>
   );
 }
@@ -82,7 +79,6 @@ function Credits() {
   const frame = useCurrentFrame();
   const rows: [string, string][] = [
     ["区間情報", "香港漁農自然護理署「郊野樂行」各区間ページ（hiking.gov.hk）／2026年10月確認・距離と時間は公式概数"],
-    ["写真", "本人撮影（撮影地点が未確定のものを含みます）"],
     ["写真", "Mk2010「Lugard Road (Hong Kong).jpg」CC BY-SA 3.0"],
     ["写真", "姒姓賢寧「Lugard Road, Victoria Peak part 9 in October 2022.jpg」CC BY-SA 4.0"],
     ["写真", "Minghong「Pok Fu Lam Reservoir 6.jpg」CC BY-SA 4.0／「Tai Tam Reservoir 3.jpg」CC BY-SA 3.0"],

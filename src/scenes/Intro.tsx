@@ -1,10 +1,9 @@
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { At } from "../components/At";
-import { Flash, Photo, Tag, img } from "../components/basics";
+import { Flash, Photo, img } from "../components/basics";
 import { Chara } from "../components/chara";
 import { Contours, Stripes } from "../components/graphics";
 import { BoxReveal, MaskWord, Marquee, RiseText } from "../components/text";
-import { CREDIT } from "../data";
 import { ip, shake } from "../lib/anim";
 import { ANTON, C, EASE, JP, MONO, SERIF } from "../theme";
 
@@ -22,10 +21,10 @@ function SubLabel({ jp, en }: { jp: string; en: string }) {
 /** 00:00–00:10 単語が写真をまとって叩きつけられ、拡大して写真に抜ける */
 function WordPunches() {
   const words = [
-    { w: "CITY", src: img("P_USER_IMG_8365.webp"), jp: "街", en: "CITY", kind: "user" as const, credit: CREDIT.user },
-    { w: "FOREST", src: img("P_USER_IMG_8883.webp"), jp: "森", en: "FOREST", kind: "user" as const, credit: CREDIT.user },
-    { w: "RIDGE", src: img("P_USER_IMG_9092.webp"), jp: "稜線", en: "RIDGE", kind: "user" as const, credit: CREDIT.user },
-    { w: "SEA", src: img("P_EXT_s08_big_wave_bay.webp"), jp: "海", en: "SEA", kind: "ext" as const, credit: CREDIT.bigwave },
+    { w: "CITY", src: img("P_USER_IMG_8365.webp"), jp: "街", en: "CITY" },
+    { w: "FOREST", src: img("P_USER_IMG_8883.webp"), jp: "森", en: "FOREST" },
+    { w: "RIDGE", src: img("P_USER_IMG_9092.webp"), jp: "稜線", en: "RIDGE" },
+    { w: "SEA", src: img("P_EXT_s08_big_wave_bay.webp"), jp: "海", en: "SEA" },
   ];
   return (
     <>
@@ -35,7 +34,6 @@ function WordPunches() {
             <MaskWord word={x.w} src={x.src} size={x.w.length > 5 ? 470 : 600} sub={<SubLabel jp={x.jp} en={x.en} />} />
           </ShakeWrap>
           <Flash at={0} len={7} max={0.6} />
-          <Tag kind={x.kind} text={x.credit} delay={10} />
         </At>
       ))}
     </>
@@ -72,7 +70,6 @@ function CharaIntro() {
         <div style={{ height: 10 }} />
         <RiseText text={"歩いて出会う\n景色がある。"} size={112} delay={30} color={C.paper} />
       </AbsoluteFill>
-      <Tag kind="chara" text={CREDIT.chara} delay={40} />
     </AbsoluteFill>
   );
 }
@@ -117,7 +114,6 @@ function Title() {
           </div>
         </div>
       </AbsoluteFill>
-      <Tag kind="user" text={CREDIT.user} delay={30} />
       <Flash at={0} len={10} max={0.7} />
     </AbsoluteFill>
   );

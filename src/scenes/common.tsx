@@ -1,18 +1,15 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
-import { Flash, Letterbox, Photo, Shade, Tag, TagKind } from "../components/basics";
+import { Flash, Letterbox, Photo, Shade } from "../components/basics";
 import { Chara } from "../components/chara";
 import { RiseText } from "../components/text";
 import { CharaId } from "../charaMeta";
-import { CREDIT } from "../data";
 import { ip } from "../lib/anim";
 import { ANTON, C, EASE, JP, MONO } from "../theme";
 
 /** 写真＋キネティックな見出し。pos で文字の置き場を決める */
 export function PhotoScene({
   src,
-  kind,
-  credit,
   text,
   sub,
   kicker,
@@ -30,8 +27,6 @@ export function PhotoScene({
   children,
 }: {
   src: string;
-  kind: TagKind;
-  credit: string;
   text?: string;
   sub?: string;
   kicker?: string;
@@ -98,7 +93,6 @@ export function PhotoScene({
       ) : null}
       {letterbox ? <Letterbox openAt={0} len={26} bar={0} /> : null}
       {flash ? <Flash at={0} len={8} max={0.6} /> : null}
-      <Tag kind={kind} text={credit} delay={12} />
     </AbsoluteFill>
   );
 }
@@ -166,7 +160,6 @@ export function CharaScene({
           <RiseText text={text} size={96} delay={14} exitAt={d - 14} align={textSide} />
         </AbsoluteFill>
       ) : null}
-      <Tag kind="chara" text={CREDIT.chara} delay={20} />
     </AbsoluteFill>
   );
 }
@@ -175,20 +168,12 @@ export function CharaScene({
 export function SplitScene({
   left,
   right,
-  leftCredit,
-  rightCredit,
-  leftKind,
-  rightKind,
   leftWord,
   rightWord,
   text,
 }: {
   left: string;
   right: string;
-  leftCredit: string;
-  rightCredit: string;
-  leftKind: TagKind;
-  rightKind: TagKind;
   leftWord: string;
   rightWord: string;
   text: string;
@@ -245,29 +230,7 @@ export function SplitScene({
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 190 }}>
         <RiseText text={text} size={100} delay={24} exitAt={d - 14} align="center" />
       </AbsoluteFill>
-      <SideCredit side="left" kind={leftKind} text={leftCredit} />
-      <SideCredit side="right" kind={rightKind} text={rightCredit} />
     </AbsoluteFill>
-  );
-}
-
-function SideCredit({ side, kind, text }: { side: "left" | "right"; kind: TagKind; text: string }) {
-  const frame = useCurrentFrame();
-  return (
-    <div
-      style={{
-        position: "absolute",
-        bottom: 64,
-        [side]: 80,
-        maxWidth: 820,
-        display: "flex",
-        gap: 0,
-        opacity: ip(frame, [14, 26], [0, 1]),
-      }}
-    >
-      <div style={{ background: kind === "ext" ? C.gold : C.red, color: kind === "ext" ? C.ink : C.paper, fontFamily: MONO, fontWeight: 700, fontSize: 18, padding: "7px 12px", letterSpacing: "0.12em" }}>PHOTO</div>
-      <div style={{ background: "rgba(12,13,11,0.62)", color: C.paper, fontFamily: JP, fontWeight: 500, fontSize: 18, padding: "7px 14px" }}>{text}</div>
-    </div>
   );
 }
 
@@ -305,9 +268,6 @@ export function WordSlam({ words, bg = C.ink, color = C.paper, accent = C.red, c
           <div style={{ width: ip(lf, [6, 20], [0, 120]), height: 4, background: accent }} />
         </div>
       </AbsoluteFill>
-      <div style={{ position: "absolute", right: 80, top: 130, fontFamily: ANTON, fontSize: 60, color: accent }}>
-        {String(i + 1).padStart(2, "0")}/{String(words.length).padStart(2, "0")}
-      </div>
       <Flash at={i * per} len={6} max={0.35} />
     </AbsoluteFill>
   );

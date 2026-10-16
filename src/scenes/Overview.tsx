@@ -1,6 +1,6 @@
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { At } from "../components/At";
-import { Flash, Tag } from "../components/basics";
+import { Flash } from "../components/basics";
 import { Contours, RouteMap } from "../components/graphics";
 import { Counter, RiseText } from "../components/text";
 import { ip, shake } from "../lib/anim";
@@ -53,7 +53,6 @@ function Route() {
           区間ごとに楽しめる、長距離トレイル。
         </div>
       </AbsoluteFill>
-      <Tag kind="diagram" text="概念図｜縮尺・実際の経路形状とは異なります" delay={20} dark />
     </AbsoluteFill>
   );
 }

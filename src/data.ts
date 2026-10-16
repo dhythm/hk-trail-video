@@ -24,13 +24,3 @@ export const SECTIONS: Section[] = [
   { n: 8, title: "龍脊の稜線、\nそして大浪灣へ", from: "土地灣", to: "大浪灣", fromEn: "TO TEI WAN", toEn: "BIG WAVE BAY", km: 8.5, minutes: 165, accent: C.red },
 ];
 
-export const CREDIT = {
-  user: "本人撮影｜撮影地点未確定",
-  lugard2011: "Mk2010 / CC BY-SA 3.0 / Wikimedia Commons「Lugard Road (Hong Kong).jpg」",
-  lugard2022: "姒姓賢寧 / CC BY-SA 4.0 / Wikimedia Commons「Lugard Road, Victoria Peak part 9 in October 2022.jpg」",
-  pokfulam: "Minghong / CC BY-SA 4.0 / Wikimedia Commons「Pok Fu Lam Reservoir 6.jpg」",
-  taitam: "Minghong / CC BY-SA 3.0 / Wikimedia Commons「Tai Tam Reservoir 3.jpg」",
-  bigwave: "Thehistorianisaac / CC0 / Wikimedia Commons「Big wave bay 2025.jpg」",
-  illust: "イメージイラスト｜実在の場所ではありません",
-  chara: "案内役キャラクター（イメージ）｜実景ではありません",
-} as const;

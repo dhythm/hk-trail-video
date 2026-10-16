@@ -1,10 +1,10 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { At } from "../components/At";
-import { Flash, Photo, Tag, img } from "../components/basics";
+import { Flash, Photo, img } from "../components/basics";
 import { Contours, Elevation, Rays, Ripples, RouteMap, SpeedLines, Stripes, Viewfinder } from "../components/graphics";
 import { Hud, SectionCard } from "../components/section";
 import { Counter, Marquee, RiseText, SlamText } from "../components/text";
-import { CREDIT, SECTIONS } from "../data";
+import { SECTIONS } from "../data";
 import { ip, rand, shake } from "../lib/anim";
 import { ANTON, C, EASE, JP, MONO, SERIF } from "../theme";
 import { CharaScene, PhotoScene, SplitScene, WordSlam } from "./common";
@@ -59,8 +59,6 @@ export function S1() {
       <At s={4.5} d={4.5}>
         <PhotoScene
           src={img("P_EXT_s01_lugard_road_2011.webp")}
-          kind="ext"
-          credit={CREDIT.lugard2011}
           kicker="LUGARD ROAD"
           text={"盧吉道から、\n歩きはじめる。"}
           scale={[1.18, 1.04]}
@@ -82,8 +80,6 @@ export function S1() {
       <At s={15} d={6}>
         <PhotoScene
           src={img("P_EXT_s01_lugard_road_2022.webp")}
-          kind="ext"
-          credit={CREDIT.lugard2022}
           text={"木々に囲まれた道も、\n同じ区間の中に。"}
           size={96}
           scale={[1.08, 1.2]}
@@ -95,10 +91,6 @@ export function S1() {
         <SplitScene
           left={img("P_USER_IMG_8365.webp")}
           right={img("P_EXT_s01_lugard_road_2022.webp")}
-          leftKind="user"
-          rightKind="ext"
-          leftCredit={CREDIT.user}
-          rightCredit="姒姓賢寧 / CC BY-SA 4.0 / Wikimedia Commons"
           leftWord="CITY"
           rightWord="NATURE"
           text={"都市と自然が、\nこんなに近い。"}
@@ -115,8 +107,6 @@ export function S2() {
       <At s={4.5} d={6.5}>
         <PhotoScene
           src={img("P_EXT_s02_pok_fu_lam_reservoir.webp")}
-          kind="ext"
-          credit={CREDIT.pokfulam}
           kicker="POK FU LAM RESERVOIR"
           text={"水源と緑と、\nそのすぐ先の街。"}
           sub="薄扶林水塘 — 区間1と2をつなぐエリア"
@@ -147,8 +137,6 @@ export function S2() {
       <At s={17} d={8}>
         <PhotoScene
           src={img("P_USER_IMG_8393.webp")}
-          kind="user"
-          credit={CREDIT.user}
           kicker="PEEL RISE"
           text={"標識が示す、\n次の道。"}
           sub="貝璐道（Peel Rise）の案内標識"
@@ -170,7 +158,7 @@ function FloatingWords({ words }: { words: string[] }) {
   return (
     <AbsoluteFill>
       {words.map((w, i) => {
-        const x = 200 + rand(i * 4.7) * 1300;
+        const x = 1000 + rand(i * 4.7) * 650;
         const y0 = 300 + rand(i * 2.3) * 500;
         const st = 20 + i * 22;
         const p = ip(frame, [st, st + 30], [0, 1], EASE.out);
@@ -210,7 +198,6 @@ export function S3() {
           <AbsoluteFill style={{ padding: "150px 160px", alignItems: "flex-start", justifyContent: "center" }}>
             <RiseText text={"歩く速度で、\n気づく風景。"} size={112} delay={10} />
           </AbsoluteFill>
-          <Tag kind="illust" text={CREDIT.illust} delay={8} />
         </AbsoluteFill>
       </At>
       <At s={12} d={6}>
@@ -230,8 +217,6 @@ export function S3() {
       <At s={18} d={7}>
         <PhotoScene
           src={img("P_USER_IMG_8883.webp")}
-          kind="user"
-          credit={CREDIT.user}
           text={"自然の細部は、\n足元にある。"}
           pos="br"
           scale={[1.2, 1.04]}
@@ -286,7 +271,6 @@ export function S4() {
             <div style={{ height: 16 }} />
             <RiseText text={"風景の中に、街と歴史の気配。"} size={56} delay={30} weight={700} color={accent} />
           </AbsoluteFill>
-          <Tag kind="diagram" text="概念図｜縮尺・実際の経路形状とは異なります" delay={12} dark />
         </AbsoluteFill>
       </At>
     </Frame>
@@ -310,7 +294,6 @@ export function S5() {
               <SlamText text="UP & DOWN" at={20} size={150} color={C.gold} />
             </div>
           </AbsoluteFill>
-          <Tag kind="diagram" text="概念図｜高低差・距離は模式的です" delay={12} />
         </AbsoluteFill>
       </At>
       <At s={11} d={6}>
@@ -330,8 +313,6 @@ export function S5() {
       <At s={17} d={8}>
         <PhotoScene
           src={img("P_USER_IMG_8576.webp")}
-          kind="user"
-          credit="本人の山歩きの記録｜撮影地点未確定"
           text={"登りの先に、"}
           size={130}
           scale={[1.3, 1.08]}
@@ -341,8 +322,6 @@ export function S5() {
       <At s={25} d={10}>
         <PhotoScene
           src={img("P_USER_IMG_8590.webp")}
-          kind="user"
-          credit="本人の山歩きの記録｜撮影地点未確定"
           text={"視界が、ひらける。"}
           sub="登った分だけ、街と海が広がる。"
           pos="c"
@@ -382,8 +361,6 @@ export function S6() {
       <At s={4.5} d={7.5}>
         <PhotoScene
           src={img("P_EXT_s06_tai_tam_aqueduct.webp")}
-          kind="ext"
-          credit={CREDIT.taitam}
           kicker="TAI TAM"
           text={"大潭上水塘の、\n石造輸水道。"}
           sub="山の緑と水面、貯水施設の歴史が重なる。"
@@ -407,10 +384,10 @@ export function S6() {
         />
       </At>
       <At s={18} d={6}>
-        <PhotoScene src={img("P_USER_IMG_8577.webp")} kind="user" credit={CREDIT.user} text={"静けさも、\nこの道の一部。"} pos="bl" scale={[1.0, 1.1]} fadeIn={12} />
+        <PhotoScene src={img("P_USER_IMG_8577.webp")} text={"静けさも、\nこの道の一部。"} pos="bl" scale={[1.0, 1.1]} fadeIn={12} />
       </At>
       <At s={24} d={6}>
-        <PhotoScene src={img("P_USER_IMG_8877.webp")} kind="user" credit={CREDIT.user} scale={[1.1, 1.0]} x={[-30, 30]} fadeIn={14}>
+        <PhotoScene src={img("P_USER_IMG_8877.webp")} scale={[1.1, 1.0]} x={[-30, 30]} fadeIn={14}>
           <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
             <RiseText text={"水辺で\nひと息"} size={96} delay={14} font={SERIF} weight={600} vertical stagger={4} dur={24} />
           </AbsoluteFill>
@@ -427,8 +404,6 @@ export function S7() {
       <At s={4.5} d={6.5}>
         <PhotoScene
           src={img("P_USER_IMG_9049.webp")}
-          kind="user"
-          credit={CREDIT.user}
           text={"視界が、\n海へ開く。"}
           size={130}
           scale={[1.25, 1.05]}
@@ -453,8 +428,6 @@ export function S7() {
       <At s={17} d={8}>
         <PhotoScene
           src={img("P_USER_IMG_9062.webp")}
-          kind="user"
-          credit={CREDIT.user}
           kicker="FINAL STAIRS"
           text={"終盤には、\n階段の登りも。"}
           sub="土地灣から石澳道へ上がる階段がある"
@@ -509,7 +482,7 @@ export function S8() {
   return (
     <Frame n={8} total={45}>
       <At s={4.5} d={4.5}>
-        <PhotoScene src={img("P_USER_IMG_9068.webp")} kind="user" credit="本人撮影｜標識名を画像で確認・設置地点は未確定" scale={[1.25, 1.05]} x={[-30, 0]} flash>
+        <PhotoScene src={img("P_USER_IMG_9068.webp")} scale={[1.25, 1.05]} x={[-30, 0]} flash>
           <AbsoluteFill style={{ background: "rgba(8,9,8,0.35)" }} />
           <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <SlamText text={"DRAGON'S\nBACK"} at={4} size={280} />
@@ -519,15 +492,13 @@ export function S8() {
         </PhotoScene>
       </At>
       <At s={9} d={5}>
-        <PhotoScene src={img("P_USER_IMG_9091.webp")} kind="user" credit="本人撮影｜標識の表示より（GPSによる地点確認なし）" scale={[1.1, 1.3]} filter="brightness(0.38) saturate(1.1) blur(3px)">
+        <PhotoScene src={img("P_USER_IMG_9091.webp")} scale={[1.1, 1.3]} filter="brightness(0.38) saturate(1.1) blur(3px)">
           <PeakCounter />
         </PhotoScene>
       </At>
       <At s={14} d={7}>
         <PhotoScene
           src={img("P_USER_IMG_9069.webp")}
-          kind="user"
-          credit="本人撮影｜撮影地点未確定（第8区間周辺と推定）"
           text={"石澳の海を、\n見渡す。"}
           size={120}
           scale={[1.2, 1.04]}
@@ -551,8 +522,6 @@ export function S8() {
       <At s={27} d={8}>
         <PhotoScene
           src={img("P_USER_IMG_9092.webp")}
-          kind="user"
-          credit="本人撮影｜撮影地点未確定（第8区間周辺と推定）"
           text={"でも、道は\nまだ続く。"}
           sub="ゴールは山頂ではなく、その先の海。"
           scale={[1.04, 1.2]}
@@ -560,7 +529,7 @@ export function S8() {
         />
       </At>
       <At s={35} d={10}>
-        <PhotoScene src={img("P_EXT_s08_big_wave_bay.webp")} kind="ext" credit={CREDIT.bigwave} scale={[1.3, 1.05]} filter="brightness(0.7) saturate(1.15)" letterbox>
+        <PhotoScene src={img("P_EXT_s08_big_wave_bay.webp")} scale={[1.3, 1.05]} filter="brightness(0.7) saturate(1.15)" letterbox>
           <FinalGoal />
         </PhotoScene>
       </At>

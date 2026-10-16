@@ -1,0 +1,42 @@
+補完実写の出典・利用条件
+本人の撮影写真とは区別して表示してください。
+
+P_EXT_s01_lugard_road_2011.webp
+作者：Mk2010
+作品名：Lugard Road (Hong Kong).jpg
+撮影日（出典記載）：2011-07-26
+出典：https://commons.wikimedia.org/wiki/File:Lugard_Road_(Hong_Kong).jpg
+ライセンス：CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0
+変更：WebP変換・長辺1920px以内に縮小。切り抜き・内容の生成変更なし。
+
+P_EXT_s01_lugard_road_2022.webp
+作者：姒姓賢寧
+作品名：Lugard Road, Victoria Peak part 9 in October 2022.jpg
+撮影日（出典記載）：2022-10-01 13:27:47
+出典：https://commons.wikimedia.org/wiki/File:Lugard_Road,_Victoria_Peak_part_9_in_October_2022.jpg
+ライセンス：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0
+変更：WebP変換・長辺1920px以内に縮小。切り抜き・内容の生成変更なし。
+
+P_EXT_s02_pok_fu_lam_reservoir.webp
+作者：Minghong
+作品名：Pok Fu Lam Reservoir 6.jpg
+撮影日（出典記載）：2009-07-01
+出典：https://commons.wikimedia.org/wiki/File:Pok_Fu_Lam_Reservoir_6.jpg
+ライセンス：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0
+変更：WebP変換・長辺1920px以内に縮小。切り抜き・内容の生成変更なし。
+
+P_EXT_s06_tai_tam_aqueduct.webp
+作者：Minghong
+作品名：Tai Tam Reservoir 3.jpg
+撮影日（出典記載）：2006-02-01
+出典：https://commons.wikimedia.org/wiki/File:Tai_Tam_Reservoir_3.jpg
+ライセンス：CC BY-SA 3.0 http://creativecommons.org/licenses/by-sa/3.0/
+変更：WebP変換・長辺1920px以内に縮小。切り抜き・内容の生成変更なし。
+
+P_EXT_s08_big_wave_bay.webp
+作者：Thehistorianisaac
+作品名：Big wave bay 2025.jpg
+撮影日（出典記載）：2025-11-03 12:46:37
+出典：https://commons.wikimedia.org/wiki/File:Big_wave_bay_2025.jpg
+ライセンス：CC0 http://creativecommons.org/publicdomain/zero/1.0/deed.en
+変更：WebP変換・長辺1920px以内に縮小。切り抜き・内容の生成変更なし。

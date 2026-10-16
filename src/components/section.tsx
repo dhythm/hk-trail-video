@@ -105,10 +105,10 @@ export function Hud({ n, dark = false }: { n: number; dark?: boolean }) {
         <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 20, letterSpacing: "0.28em" }}>HONG KONG TRAIL</div>
         <div style={{ fontFamily: JP, fontWeight: 700, fontSize: 20, opacity: 0.8 }}>港島徑</div>
       </div>
-      <div style={{ position: "absolute", top: 50, right: 80, display: "flex", alignItems: "baseline", gap: 12, color: fg }}>
-        <span style={{ fontFamily: MONO, fontSize: 18, letterSpacing: "0.25em", opacity: 0.8 }}>SECTION</span>
-        <span style={{ fontFamily: ANTON, fontSize: 40 }}>{String(n).padStart(2, "0")}</span>
-        <span style={{ fontFamily: MONO, fontSize: 18, opacity: 0.6 }}>/ 08</span>
+      <div style={{ position: "absolute", top: 36, right: 80, display: "flex", alignItems: "baseline", gap: 12, color: fg }}>
+        <span style={{ fontFamily: MONO, fontWeight: 700, fontSize: 22, letterSpacing: "0.25em", opacity: 0.85 }}>SECTION</span>
+        <span style={{ fontFamily: ANTON, fontSize: 64, lineHeight: 1, color: C.red }}>{String(n).padStart(2, "0")}</span>
+        <span style={{ fontFamily: MONO, fontWeight: 700, fontSize: 22, opacity: 0.7 }}>/ 08</span>
       </div>
       <div style={{ position: "absolute", left: 80, right: 80, bottom: 30, display: "flex", gap: 6 }}>
         {SECTIONS.map((s) => {

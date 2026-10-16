@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { ip } from "../lib/anim";
-import { C, EASE, JP, MONO } from "../theme";
+import { C, EASE } from "../theme";
 
 export function img(name: string): string {
   return staticFile(`img/${name}`);
@@ -63,69 +63,6 @@ export function Grain({ opacity = 0.09 }: { opacity?: number }) {
         style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.38) 100%)" }}
       />
     </AbsoluteFill>
-  );
-}
-
-/** 画面下部の素材表記（本人撮影・出典・イメージ） */
-export type TagKind = "user" | "ext" | "illust" | "chara" | "diagram";
-
-const TAG_LABEL: Record<TagKind, string> = {
-  user: "PHOTO",
-  ext: "PHOTO",
-  illust: "ILLUST",
-  chara: "GUIDE",
-  diagram: "DIAGRAM",
-};
-
-export function Tag({ kind, text, delay = 6, dark = false }: { kind: TagKind; text: string; delay?: number; dark?: boolean }) {
-  const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
-  const inP = ip(frame, [delay, delay + 14], [0, 1]);
-  const outP = ip(frame, [durationInFrames - 8, durationInFrames], [1, 0], EASE.in);
-  const fg = dark ? C.ink : C.paper;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: 80,
-        bottom: 64,
-        display: "flex",
-        alignItems: "stretch",
-        opacity: Math.min(inP, outP),
-        translate: `${(1 - inP) * -30}px 0`,
-        clipPath: `inset(0 ${(1 - inP) * 100}% 0 0)`,
-      }}
-    >
-      <div
-        style={{
-          background: kind === "ext" ? C.gold : C.red,
-          color: kind === "ext" ? C.ink : C.paper,
-          fontFamily: MONO,
-          fontWeight: 700,
-          fontSize: 20,
-          letterSpacing: "0.12em",
-          padding: "8px 14px",
-        }}
-      >
-        {TAG_LABEL[kind]}
-      </div>
-      <div
-        style={{
-          background: dark ? "rgba(242,237,227,0.85)" : "rgba(12,13,11,0.62)",
-          backdropFilter: "blur(6px)",
-          color: fg,
-          fontFamily: JP,
-          fontWeight: 500,
-          fontSize: 22,
-          padding: "8px 16px",
-          letterSpacing: "0.03em",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {text}
-      </div>
-    </div>
   );
 }
 
